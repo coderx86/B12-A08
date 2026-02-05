@@ -1,10 +1,15 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaGooglePlay, FaApple, FaDownload, FaStar } from 'react-icons/fa';
 import { TbAppsFilled } from "react-icons/tb";
 import heroImg from '../assets/hero.png';
+import apps from '../data/apps';
+import AppCard from '../components/AppCard';
 
 const Home = () => {
+  const topApps = apps.slice(0, 8);
+
   return (
     <div>
       {/* Banner Section */}
@@ -73,6 +78,28 @@ const Home = () => {
                 </div>
              </div>
          </div>
+      </section>
+
+      {/* Top Apps Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+           <div className="text-center mb-16">
+               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Trending Apps</h2>
+               <p className="text-gray-500 max-w-xl mx-auto">Explore All Trending Apps on the Market developed by us.</p>
+           </div>
+           
+           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+              {topApps.map(app => (
+                 <AppCard key={app.id} app={app} />
+              ))}
+           </div>
+           
+           <div className="text-center">
+              <Link to="/apps" className="btn bg-[#6B50F6] text-white hover:bg-[#6B50F6]/90 border-none px-8 h-auto py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1">
+                  Show All
+              </Link>
+           </div>
+        </div>
       </section>
     </div>
   );
