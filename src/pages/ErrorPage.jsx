@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouteError, Link } from 'react-router-dom';
 import errorImg from '../assets/error-404.png';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const ErrorPage = () => {
   const error = useRouteError();
@@ -19,6 +20,7 @@ const ErrorPage = () => {
         Go Back!
       </Link>
     </div>
+    <Footer />
     </>
   );
 };
