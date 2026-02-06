@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import apps from '../data/apps';
 import AppCard from '../components/AppCard';
+import AppErrorImage from '../assets/app-error.png';
 
 const AllApps = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -84,9 +85,24 @@ const AllApps = () => {
                   ))}
                </div>
            ) : (
-               <div className="text-center py-20">
-                   <h3 className="text-xl font-bold text-gray-400">No App Found</h3>
-                   <p className="text-gray-400 mt-2">Try searching for something else.</p>
+               <div className="flex flex-col items-center justify-center py-16 text-center">
+                   <img 
+                       src={AppErrorImage} 
+                       alt="No App Found" 
+                       className="w-80 h-auto mb-6 object-contain"
+                   />
+                   <h3 className="text-3xl font-bold text-[#1A1A1A] mb-3">
+                       OPPS!! APP NOT FOUND
+                   </h3>
+                   <p className="text-gray-500 mb-8 text-base max-w-lg mx-auto">
+                       The App you are requesting is not found on our system. please try another apps
+                   </p>
+                   <button 
+                       onClick={() => setSearchTerm('')}
+                       className="bg-[#6B50F6] hover:bg-[#593ccf] text-white px-10 py-3 rounded-lg font-medium transition-all duration-300 shadow-[#6B50F6]/30 shadow-lg"
+                   >
+                       Go Back!
+                   </button>
                </div>
            )}
        </div>
