@@ -1,10 +1,11 @@
-
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
 import ErrorPage from './pages/ErrorPage';
 import AllApps from './pages/AllApps';
+import AppDetails from './pages/AppDetails';
+import Installation from './pages/Installation';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,14 @@ const router = createBrowserRouter([
      {
         path: 'apps',
         element: <AllApps />,
+      },
+      {
+        path: 'apps/:id',
+        element: <AppDetails />,
+      },
+      {
+        path: 'installation',
+        element: <Installation />,
       },
     ],
   },
